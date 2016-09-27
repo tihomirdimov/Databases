@@ -1,0 +1,13 @@
+CREATE TABLE Minions
+(
+Id INT NOT NULL,
+Name VARCHAR,
+Age INT,
+PRIMARY KEY (Id),
+)
+CREATE TABLE Towns 
+(
+Id INT NOT NULL,
+Name VARCHAR,
+PRIMARY KEY (Id),
+) 
