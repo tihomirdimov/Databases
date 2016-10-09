@@ -6,7 +6,8 @@ CREATE TABLE Categories
   DailyRate   FLOAT(2),
   WeeklyRate  FLOAT(2),
   MonthlyRate FLOAT(2),
-  WeekendRate FLOAT(2));
+  WeekendRate FLOAT(2)
+  );
 
 CREATE TABLE cars
 (
