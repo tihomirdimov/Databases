@@ -17,7 +17,7 @@ namespace _01IntroductionToDBApps02
                     "FROM Villains v\n" +
                     "JOIN MinionsVillains mv ON v.Id = mv.VillainId\n" +
                     "GROUP BY v.Name\n" +
-                    "HAVING COUNT(MinionId) > 1\n" +
+                    "HAVING COUNT(MinionId) > 3\n" +
                     "ORDER BY c DESC";
                 ExecuteCommand(getVillians, connection);
 
