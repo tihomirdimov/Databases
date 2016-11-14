@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using IntroToEntityFramework.Models;
@@ -18,13 +17,13 @@ namespace IntroToEntityFramework
             //result = EmployeesFromSeattle(context);
             //result = AddingNewAddressAndUpdatingEmployee(context);
             //result = DeleteProjectById(context);
-            result = FindEmployeesInPeriod(context);
+            //result = FindEmployeesInPeriod(context);
             //result = AddressesByTownName(context);
             //result = EmployeeWithIdSortedByProjectNames(context);
             //result = DepartmentsWithMoreThanNemployees(context);
             //result = FindLatestNProjects(context);
             //result = IncreaseSalaries(context);
-            //result = FindEmployeesByFirstNameStartingWith(context);
+            result = FindEmployeesByFirstNameStartingWith(context);
             Console.WriteLine(result);
         }
         public static string GetEmployeesFullInfo(SoftuniContext context)
