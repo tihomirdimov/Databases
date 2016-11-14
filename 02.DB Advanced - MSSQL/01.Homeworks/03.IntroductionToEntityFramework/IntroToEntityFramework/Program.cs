@@ -12,20 +12,22 @@ namespace IntroToEntityFramework
         static void Main(string[] args)
         {
             SoftuniContext context = new SoftuniContext();
-            //GetEmployeesFullInfo(context);
-            //EmployeesWithSalaryOver(context);
-            //EmployeesFromSeattle(context);
-            //AddingNewAddressAndUpdatingEmployee(context);
-            //DeleteProjectById(context);
-            //FindEmployeesInPeriod(context);
-            //AddressesByTownName(context);
-            //EmployeeWithIdSortedByProjectNames(context);
-            //DepartmentsWithMoreThanNemployees(context);
-            //FindLatestNProjects(context);
-            //IncreaseSalaries(context);
-            FindEmployeesByFirstNameStartingWith(context);
+            string result;
+            //result = GetEmployeesFullInfo(context);
+            //result = EmployeesWithSalaryOver(context);
+            //result = EmployeesFromSeattle(context);
+            //result = AddingNewAddressAndUpdatingEmployee(context);
+            //result = DeleteProjectById(context);
+            result = FindEmployeesInPeriod(context);
+            //result = AddressesByTownName(context);
+            //result = EmployeeWithIdSortedByProjectNames(context);
+            //result = DepartmentsWithMoreThanNemployees(context);
+            //result = FindLatestNProjects(context);
+            //result = IncreaseSalaries(context);
+            //result = FindEmployeesByFirstNameStartingWith(context);
+            Console.WriteLine(result);
         }
-        public static void GetEmployeesFullInfo(SoftuniContext context)
+        public static string GetEmployeesFullInfo(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             IEnumerable<Employee> employees = context.Employees;
@@ -33,9 +35,9 @@ namespace IntroToEntityFramework
             {
                 result.AppendLine($"{employee.FirstName} {employee.LastName} {employee.MiddleName} {employee.JobTitle} {employee.Salary.ToString().Replace(",", ".")}");
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void EmployeesWithSalaryOver(SoftuniContext context)
+        public static string EmployeesWithSalaryOver(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var employees = context.Employees
@@ -45,9 +47,9 @@ namespace IntroToEntityFramework
             {
                 result.AppendLine(employee);
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void EmployeesFromSeattle(SoftuniContext context)
+        public static string EmployeesFromSeattle(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var employees = context.Employees
@@ -60,9 +62,9 @@ namespace IntroToEntityFramework
                                      $"from {employee.Department.Name} - ${employee.Salary:F2}");
             }
             result.Replace(",", ".");
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void AddingNewAddressAndUpdatingEmployee(SoftuniContext context)
+        public static string AddingNewAddressAndUpdatingEmployee(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var address = new Address() { AddressText = "Vitoshka 15", TownID = 4 };
@@ -78,9 +80,9 @@ namespace IntroToEntityFramework
             {
                 result.AppendLine(employeeAddress);
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void DeleteProjectById(SoftuniContext context)
+        public static string DeleteProjectById(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var project = context.Projects.Find(2);
@@ -97,9 +99,9 @@ namespace IntroToEntityFramework
             {
                 result.AppendLine(proj);
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void FindEmployeesInPeriod(SoftuniContext context)
+        public static string FindEmployeesInPeriod(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var employees = context.Employees
@@ -113,9 +115,9 @@ namespace IntroToEntityFramework
                     result.AppendLine($"--{project.Name} {project.StartDate} {project.EndDate}");
                 }
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void AddressesByTownName(SoftuniContext context)
+        public static string AddressesByTownName(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var addresses =
@@ -128,9 +130,9 @@ namespace IntroToEntityFramework
             {
                 result.AppendLine($"{address.AddressText}, {address.Town.Name} - {address.Employees.Count} employees");
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void EmployeeWithIdSortedByProjectNames(SoftuniContext context)
+        public static string EmployeeWithIdSortedByProjectNames(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             Employee employee = context.Employees.Find(147);
@@ -140,9 +142,9 @@ namespace IntroToEntityFramework
             {
                 result.AppendLine(project.Name);
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void DepartmentsWithMoreThanNemployees(SoftuniContext context)
+        public static string DepartmentsWithMoreThanNemployees(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             IEnumerable<Department> departments = context
@@ -156,9 +158,9 @@ namespace IntroToEntityFramework
                     result.AppendLine($"{employee.FirstName} {employee.LastName} {employee.JobTitle}");
                 }
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void FindLatestNProjects(SoftuniContext context)
+        public static string FindLatestNProjects(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var latestStartedProjects =
@@ -170,9 +172,9 @@ namespace IntroToEntityFramework
             {
                result.AppendLine($"{latestStartedProject.Name} {latestStartedProject.Description} {latestStartedProject.StartDate} {latestStartedProject.EndDate}");
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void IncreaseSalaries(SoftuniContext context)
+        public static string IncreaseSalaries(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             var employees = context.Employees.Where(employee =>
@@ -187,9 +189,9 @@ namespace IntroToEntityFramework
                 result.AppendLine($"{employee.FirstName} {employee.LastName} (${employee.Salary})");
             }
             context.SaveChanges();
-            Console.WriteLine(result);
+            return result.ToString();
         }
-        public static void FindEmployeesByFirstNameStartingWith(SoftuniContext context)
+        public static string FindEmployeesByFirstNameStartingWith(SoftuniContext context)
         {
             StringBuilder result = new StringBuilder();
             string pattern = "SA";
@@ -201,7 +203,7 @@ namespace IntroToEntityFramework
                 result.AppendLine($"{employeeByPattern.FirstName} {employeeByPattern.LastName} " +
                                   $"- {employeeByPattern.JobTitle} - (${employeeByPattern.Salary})");
             }
-            Console.WriteLine(result);
+            return result.ToString();
         }
     }
 }
