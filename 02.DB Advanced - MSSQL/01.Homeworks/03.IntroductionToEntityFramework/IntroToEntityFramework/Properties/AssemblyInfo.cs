@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("01IntroductionToDBApps03")]
+[assembly: AssemblyTitle("IntroToEntityFramework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("01IntroductionToDBApps03")]
+[assembly: AssemblyProduct("IntroToEntityFramework")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("801c8ed3-77d4-4768-ad4d-b1e4cc6942fb")]
+[assembly: Guid("e9ca9696-3499-4aa7-998e-cc559e23c9da")]
 
 // Version information for an assembly consists of the following four values:
 //
